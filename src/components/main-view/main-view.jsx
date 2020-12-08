@@ -12,7 +12,8 @@ export class MainView extends React.Component {
 
         this.state = {
             movies: null,
-            selectedMovie: null
+            selectedMovie: null,
+            user: null
         };
     }
 
@@ -36,8 +37,16 @@ export class MainView extends React.Component {
         });
     }
 
+    onLoggedIn(user) {
+        this.setState({
+            user
+        });
+    }
     render() {
         const { movies, selectedMovie } = this.state;
+
+        if (!user) return <LoginView onLoggedIn={user =>
+            this.onLoggedIn(user)} />;
 
         // Before the movies have been loaded
         if (!movies) return <div className="main-view" />;
