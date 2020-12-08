@@ -1,4 +1,3 @@
-import React from 'react';
 import React, { useReducer } from 'react';
 import axios from 'axios';
 
@@ -45,6 +44,7 @@ export class MainView extends React.Component {
     }
     render() {
         const { movies, selectedMovie } = this.state;
+        const { movies, selectedMovie, user } = this.state;
 
         if (!user) return <LoginView onLoggedIn={user =>
             this.onLoggedIn(user)} />;
