@@ -9,7 +9,7 @@ export class MainView extends React.Component {
 
     constructor() {
         super();
-
+        // Initial state is set to null
         this.state = {
             movies: null,
             selectedMovie: null,
@@ -30,6 +30,8 @@ export class MainView extends React.Component {
                 console.log(error);
             });
     }
+    /*When a movie is clicked, this function is invoked and updates the state of the
+     `selectedMovie` *property to that movie*/
 
     onMovieClick(movie) {
         this.setState({
@@ -37,14 +39,20 @@ export class MainView extends React.Component {
         });
     }
 
+    /* When a user successfully logs in, this function updates the 
+    `user` property in state to that *particular user*/
+
     onLoggedIn(user) {
         this.setState({
             user
         });
     }
     render() {
-        const { movies, selectedMovie } = this.state;
         const { movies, selectedMovie, user } = this.state;
+
+        /* If there is no user, the LoginView is rendered. 
+        If there is a user logged in, the user details are 
+        *passed as a prop to the LoginView*/
 
         if (!user) return <LoginView onLoggedIn={user =>
             this.onLoggedIn(user)} />;
@@ -54,6 +62,11 @@ export class MainView extends React.Component {
 
         return (
             <div className="main-view">
+
+                {/* If the state of `selectedMovie` is not null, 
+that selected movie will be returned otherwise, 
+all *movies will be returned */}
+
                 {selectedMovie
                     ? <MovieView movie={selectedMovie} />
                     : movies.map(movie => (
