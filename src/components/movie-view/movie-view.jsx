@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 // import { useHistory } from 'react-router-dom';
 
 export class MovieView extends React.Component {
@@ -43,8 +44,11 @@ export class MovieView extends React.Component {
                 {/* <form>
                     <button onClick={() => history.push('./components/main-view/main-view')}>Back</button>
                 </form> */}
+                <li>
+                    <a href="main-view.jsx">Back</a>
+                </li>
             </div>
-
         );
     }
 }
+
