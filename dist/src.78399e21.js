@@ -33336,21 +33336,19 @@ var MovieCard = /*#__PURE__*/function (_React$Component) {
       var _this$props = this.props,
           movie = _this$props.movie,
           _onClick = _this$props.onClick;
-      return (// <div onClick={() => onClick(movie)} className="movie-card">{movie.Title}</div>
-        _react.default.createElement(_Card.default, {
-          style: {
-            width: '16rem'
-          }
-        }, _react.default.createElement(_Card.default.Img, {
-          variant: "top",
-          src: movie.ImagePath
-        }), _react.default.createElement(_Card.default.Body, null, _react.default.createElement(_Card.default.Title, null, movie.Title), _react.default.createElement(_Card.default.Text, null, movie.Description), _react.default.createElement(_Button.default, {
-          onClick: function onClick() {
-            return _onClick(movie);
-          },
-          variant: "link"
-        }, "Open")))
-      );
+      return _react.default.createElement(_Card.default, {
+        style: {
+          width: '16rem'
+        }
+      }, _react.default.createElement(_Card.default.Img, {
+        variant: "top",
+        src: movie.ImagePath
+      }), _react.default.createElement(_Card.default.Body, null, _react.default.createElement(_Card.default.Title, null, movie.Title), _react.default.createElement(_Card.default.Text, null, movie.Description), _react.default.createElement(_Button.default, {
+        onClick: function onClick() {
+          return _onClick(movie);
+        },
+        variant: "link"
+      }, "Open")));
     }
   }]);
 
@@ -33380,6 +33378,8 @@ exports.MovieView = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _Button = _interopRequireDefault(require("react-bootstrap/Button"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -33404,6 +33404,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+// import { useHistory } from 'react-router-dom';
 var MovieView = /*#__PURE__*/function (_React$Component) {
   _inherits(MovieView, _React$Component);
 
@@ -33423,7 +33424,9 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var movie = this.props.movie;
-      if (!movie) return null;
+      if (!movie) return null; // const { main } = this.props;
+      // const history = useHistory();
+
       return _react.default.createElement("div", {
         className: "movie-view"
       }, _react.default.createElement("img", {
@@ -33453,7 +33456,9 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
         className: "label"
       }, "Director: "), _react.default.createElement("span", {
         className: "value"
-      }, movie.Director.Name)));
+      }, movie.Director.Name)), _react.default.createElement("li", null, _react.default.createElement("a", {
+        href: "main-view.jsx"
+      }, "Back")));
     }
   }]);
 
@@ -33461,7 +33466,7 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
 }(_react.default.Component);
 
 exports.MovieView = MovieView;
-},{"react":"../node_modules/react/index.js"}],"components/main-view/main-view.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js"}],"components/main-view/main-view.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -62203,11 +62208,7 @@ var MyFlixApplication = /*#__PURE__*/function (_React$Component) {
   _createClass(MyFlixApplication, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement(_mainView.MainView, null); // return (
-      //     <div className="my-flix">
-      //       <Button intent="success" text="button content" onClick={incrementCounter} />
-      //     </div>
-      //   );
+      return _react.default.createElement(_mainView.MainView, null);
     }
   }]);
 
@@ -62246,7 +62247,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52672" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53263" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
