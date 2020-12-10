@@ -12,11 +12,6 @@ import './index.scss';
 class MyFlixApplication extends React.Component {
     render() {
         return <MainView />;
-        // return (
-        //     <div className="my-flix">
-        //       <Button intent="success" text="button content" onClick={incrementCounter} />
-        //     </div>
-        //   );
     }
 }
 
