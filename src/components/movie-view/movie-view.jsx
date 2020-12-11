@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-// import { useHistory } from 'react-router-dom';
 
 export class MovieView extends React.Component {
 
@@ -13,10 +12,6 @@ export class MovieView extends React.Component {
     render() {
         const { movie } = this.props;
         if (!movie) return null;
-
-        // const { main } = this.props;
-
-        // const history = useHistory();
 
         return (
             <div className="movie-view">
@@ -38,12 +33,6 @@ export class MovieView extends React.Component {
                     <span className="label">Director: </span>
                     <span className="value">{movie.Director.Name}</span>
                 </div>
-                {/* onClick={() => onClick(movie)} className="movie-card">{movie.Title}</div>
-                <Button onClick={() => onClick(main - view)} variant="link">Back</Button>
-                <Button intent="success" text="button content" onClick={incrementCounter} /> */}
-                {/* <form>
-                    <button onClick={() => history.push('./components/main-view/main-view')}>Back</button>
-                </form> */}
                 <div>
                     <Button variant="primary" href="/main-view.jsx">Back</Button>
                 </div>
