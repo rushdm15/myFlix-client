@@ -44,9 +44,9 @@ export class MovieView extends React.Component {
                 {/* <form>
                     <button onClick={() => history.push('./components/main-view/main-view')}>Back</button>
                 </form> */}
-                <li>
-                    <a href="main-view.jsx">Back</a>
-                </li>
+                <div>
+                    <Button variant="primary" href="/main-view.jsx">Back</Button>
+                </div>
             </div>
         );
     }
