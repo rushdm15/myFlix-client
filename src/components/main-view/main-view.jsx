@@ -43,7 +43,7 @@ export class MainView extends React.Component {
             .catch(function (error) {
                 console.log(error);
             });
-    };
+    }
     /*When a movie is clicked, this function is invoked and updates the state of the
      `selectedMovie` *property to that movie*/
 
