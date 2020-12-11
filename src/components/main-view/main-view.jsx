@@ -86,20 +86,14 @@ export class MainView extends React.Component {
 that selected movie will be returned otherwise, 
 all *movies will be returned */}
 
-                {selectedMovie
-                    ?
-                    (
-                        <MovieView movie={selectedMovie} />
-                    )
-                    :
-                    (
-                        <Row>
-                            {movies.map(movie => (
-                                <MovieCard key={movie._id} movie={movie} onClick={movie => this.onMovieClick(movie)} />
-                            ))
-                            }
-                        </Row>
-                    )}
+                {selectedMovie ? <MovieView movie={selectedMovie} /> :
+                    <Row>
+                        {movies.map(movie => (
+                            <MovieCard key={movie._id} movie={movie} onClick={movie => this.onMovieClick(movie)} />
+                        ))
+                        }
+                    </Row>
+                }
             </div>
         );
     }
