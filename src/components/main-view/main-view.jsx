@@ -22,6 +22,10 @@ export class MainView extends React.Component {
     // One of the "hooks" available in a React Component
     componentDidMount() {
         axios.get('https://flexnet91.herokuapp.com/movies')
+    getMovies(token) {
+        axios.get('https://flexnet91.herokuapp.com/movies', {
+            headers: { Authorization: `Bearer ${token}` }
+        })
             .then(response => {
                 // Assign the result to the state
                 this.setState({
@@ -93,17 +97,3 @@ all *movies will be returned */}
     }
 }
 
-getMovies(token) {
-    axios.get('https://flexnet91.herokuapp.com/movies', {
-        headers: { Authorization: `Bearer ${token}` }
-    })
-        .then(response => {
-            // Assign the result to the state
-            this.setState({
-                movies: response.data
-            });
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-};
