@@ -21,7 +21,15 @@ export class MainView extends React.Component {
 
     // One of the "hooks" available in a React Component
     componentDidMount() {
-        axios.get('https://flexnet91.herokuapp.com/movies')
+        let accessToken = localStorage.getItem('token');
+        if (accessToken !== null) {
+            this.setState({
+                user: localStorage.getItem('user')
+            });
+            this.getMovies(accessToken);
+        }
+    }
+
     getMovies(token) {
         axios.get('https://flexnet91.herokuapp.com/movies', {
             headers: { Authorization: `Bearer ${token}` }
