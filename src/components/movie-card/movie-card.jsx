@@ -19,7 +19,7 @@ export class MovieCard extends React.Component {
                         <Card.Text>{movie.Description}</Card.Text>
                         <Button onClick={() => onClick(movie)} variant="link">Open</Button>
                     </Card.Body>
-                </Card>;
+                </Card>
             </Col>
         );
     }
