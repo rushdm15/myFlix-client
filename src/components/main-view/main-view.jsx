@@ -82,21 +82,19 @@ export class MainView extends React.Component {
         if (!movies) return <div className="main-view" />;
 
         return (
-            <div className="main-view">
-
-                {/* If the state of `selectedMovie` is not null, 
-that selected movie will be returned otherwise, 
-all *movies will be returned */}
-
-                {selectedMovie ? <MovieView movie={selectedMovie} /> :
-                    <Row>
-                        {movies.map(movie => (
-                            <MovieCard key={movie._id} movie={movie} onClick={movie => this.onMovieClick(movie)} />
-                        ))
-                        }
-                    </Row>
-                }
-            </div>
+            <Router>
+                <div className="main-view">
+                    <Route exact path="/" render={() => movies.map(m =>
+                        <MovieCard key={m._id} movie={m} />)} />
+                    <Route path="/movies/:movieId" render={({ match }) =>
+                        <MovieView movie={movies.find(m => m._id === match.params.movieId)} />} />
+                    <Route exact path="/genres/:name" render={/* genre view*/} />
+                    <Route exact path="/directors/:name" render={({ match }) => {
+                        if (!movies) return <div className="main-view" />;
+                        return <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} />
+                    }} />
+                </div>
+            </Router>
         );
     }
 }
