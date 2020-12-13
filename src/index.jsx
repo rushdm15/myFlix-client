@@ -1,8 +1,10 @@
 // client/src/index.jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { MainView } from './components/main-view/main-view';
+{ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" /> }
 
 // Import statement to indicate that you need to bundle './index.scss'
 import './index.scss';
