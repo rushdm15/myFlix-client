@@ -84,11 +84,20 @@ export class MainView extends React.Component {
         return (
             <Router>
                 <div className="main-view">
-                    <Route exact path="/" render={() => movies.map(m =>
-                        <MovieCard key={m._id} movie={m} />)} />
+                    <Route exact path="/" render={() => {
+                        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+                        return movies.map(m => <MovieCard key={m._id} movie={m} />)
+                    }} />
+                    <Route path="/register" render={() => <RegistrationView />} />
+
                     <Route path="/movies/:movieId" render={({ match }) =>
                         <MovieView movie={movies.find(m => m._id === match.params.movieId)} />} />
-                    <Route exact path="/genres/:name" render={/* genre view*/} />
+
+                    <Route exact path="/genres/:name" render={({ match }) => {
+                        if (!movies) return <div className="main-view" />;
+                        return <GenreView director={movies.find(m => m.Genre.Name === match.params.name).Genre} />
+                    }} />
+
                     <Route exact path="/directors/:name" render={({ match }) => {
                         if (!movies) return <div className="main-view" />;
                         return <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} />
