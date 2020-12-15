@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { devToolsEnhancer } from 'redux-devtools-extension';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { MainView } from './components/main-view/main-view';
+import MainView from './components/main-view/main-view';
 { <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" /> }
 
 import moviesApp from './reducers/reducers';
