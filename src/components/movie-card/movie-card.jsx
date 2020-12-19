@@ -15,7 +15,7 @@ export class MovieCard extends React.Component {
         const { movie, onClick } = this.props;
 
         return (
-            <Col md="3">
+            <Col md="4">
                 <Card style={{ width: '16rem' }}>
                     <Card.Img variant="top" src={movie.ImagePath} />
                     <Card.Body>
@@ -41,5 +41,5 @@ MovieCard.propTypes = {
         //     ...
         //   })
     }).isRequired,
-    onClick: PropTypes.func.isRequired
+    // onClick: PropTypes.func.isRequired
 };
