@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import Row from 'react-bootstrap/Row';
 // import { devToolsEnhancer } from 'redux-devtools-extension';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

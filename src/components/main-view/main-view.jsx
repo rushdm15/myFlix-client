@@ -38,6 +38,7 @@ class MainView extends React.Component {
     }
 
     getMovies(token) {
+        console.log("=====token===", token)
         axios.get('https://flexnet91.herokuapp.com/movies', {
             headers: { Authorization: `Bearer ${token}` }
         })

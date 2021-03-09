@@ -18,8 +18,10 @@ export function LoginView(props) {
             Password: password
         })
             .then(response => {
+                console.log(response, "=====")
                 const data = response.data;
                 props.onLoggedIn(data);
+                return
             })
             .catch(e => {
                 console.log('no such user')
